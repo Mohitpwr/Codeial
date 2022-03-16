@@ -1,3 +1,5 @@
 module.exports.profile=(req,res)=>{
-    res.end("Users controller profile")
+    res.render('user_profile',{
+        title:' Codieal/Profile'
+    })
 }
