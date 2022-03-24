@@ -21,3 +21,19 @@ module.exports.create = function(req, res){
 
     });
 }
+
+module.exports.destroy=(req,res)=>{
+
+    Comment.findById(req.params.id,(err,comment)=>{
+       
+        if(comment.user==req.user.id){
+           let postId=comment.post
+            comment.remove()
+            Post.findByIdAndUpdate(postId,{$pull:{comments:req.params.id}},(err,post)=>{
+                return res.redirect('back')
+            })
+            
+
+        }
+    })
+}
