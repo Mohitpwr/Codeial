@@ -14,6 +14,7 @@ module.exports.create = function(req, res){
 
                 post.comments.push(comment);
                 post.save();
+                req.flash('success',' Comment Added')
 
                 res.redirect('/');
             });
@@ -30,6 +31,7 @@ module.exports.destroy=(req,res)=>{
            let postId=comment.post
             comment.remove()
             Post.findByIdAndUpdate(postId,{$pull:{comments:req.params.id}},(err,post)=>{
+                req.flash('success','Comment deleted')
                 return res.redirect('back')
             })
             

@@ -60,7 +60,7 @@ User.findOne({
 //sign in and create a session for the user
 
 module.exports.createSession=(req,res)=>{
-        
+        req.flash('success',"Logged in Successfully")
            res.redirect('/')
 
 }
@@ -68,6 +68,7 @@ module.exports.createSession=(req,res)=>{
 module.exports.destroySession=(req,res)=>{
     
     req.logout()  //provided by passport js
+    req.flash('success',"Logged out Successfully")
     res.redirect('/')
  
 
