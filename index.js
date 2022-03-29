@@ -7,6 +7,7 @@ const db= require('./confiq/mongoose')
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./confiq/passport-local-strategy');
+const passportJWT = require('./confiq/passport-jwt-strategy');
 const MongoStore = require('connect-mongo');
 const sassMiddleware=require('node-sass-middleware')
 const flash=require('connect-flash')
