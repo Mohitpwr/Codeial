@@ -8,6 +8,7 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./confiq/passport-local-strategy');
 const passportJWT = require('./confiq/passport-jwt-strategy');
+const passportGoogle = require('./confiq/passport-google-oauth2-strategy');
 const MongoStore = require('connect-mongo');
 const sassMiddleware=require('node-sass-middleware')
 const flash=require('connect-flash')
@@ -75,6 +76,6 @@ app.use('/',require('./routes'))
 
 
 
-app.listen(3000,(err)=>{
-    console.log('Server is up and running on port: 3000')
+app.listen(8000,(err)=>{
+    console.log('Server is up and running on port: 8000')
 })
