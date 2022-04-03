@@ -1,5 +1,6 @@
 const Post=require('../models/post')
 const User=require('../models/user')
+
 module.exports.home=async(req,res)=>{
     // populate the user of each post
     try {
@@ -9,8 +10,12 @@ module.exports.home=async(req,res)=>{
         path: 'comments',
         populate: {
             path: 'user'
+        },
+        populate: {
+            path: 'likes'
         }
-    })
+    }).populate('comments')
+    .populate('likes')
 
     let users=await  User.find({})
 
